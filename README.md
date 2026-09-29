@@ -23,7 +23,8 @@ assets/
   js/calculator.js    running cost calculator
   js/data.js          summary numbers used by the charts (from data/*.csv)
   js/vendor/chart.umd.js   Chart.js 4.4.1, stored locally
-  img/PowerIcon.png
+  img/PowerIcon.png 
+  img/Storyboard.png
 data/
   tv_clean.csv                     cleaned data, one row per unique test result
   summary_by_size.csv              chart 1 and 2
@@ -54,13 +55,7 @@ An Australian household choosing a new television. They are not technical, have 
 
 ### Storyboard
 
-1. **Hook:** "A 55-inch TV can use as much power as a 75-inch", with three headline numbers.
-2. **Setup (chart 1):** larger screens cost more. Median energy use by size.
-3. **Complication (chart 2):** at every size there is a wide range. The 55-inch range is 170 to 817 kWh a year.
-4. **Resolution (chart 3):** stars explain the range, technology does not.
-5. **Action:** a three-step buying checklist and a link to the calculator.
-
-*Replace or extend this with your own storyboard from Miro, draw.io or PowerPoint, and add the image here.*
+Storyboard is added ian the img folder `Storyboard.png`.
 
 ### Key findings
 
@@ -78,7 +73,7 @@ Dollar figures are kWh multiplied by 0.2855 dollars per kWh.
 
 ### Data source
 
-The Australian Government Energy Rating register of labelled televisions, published on data.gov.au ("Energy Rating Data for household appliances - Labelled Products", televisions resource). The file used is `tv_2026_09_28.csv` (28 September 2026), provided for the unit. It has 5,340 rows and 32 columns. An earlier version of the data (`tv_2026_02_15.csv`, 4,724 rows) was used for a first draft, and every figure was recalculated when the new file arrived.
+The Australian Government Energy Rating register of labelled televisions, published on data.gov.au ("Energy Rating Data for household appliances - Labelled Products", televisions resource). The file used is `tv_2026_09_28.csv` (28 September 2026), provided for the unit. It has 5,340 rows and 32 columns.
 
 The tariff of 28.55 cents per kWh is the average Australian tariff quoted in the Energy Rating retailer factsheet for TVs and monitors. It may be out of date, and the website tells users to replace it with their own rate.
 
@@ -119,3 +114,7 @@ The data describes products, not people. It contains brand names, model numbers 
 - The story does not tell people to buy a particular TV. It explains how to read the label.
 - Axes start at zero on the bar charts so the differences are not exaggerated.
 - Charts have text descriptions and data tables so the information does not depend on colour or sight.
+
+### AI Declaration
+- I created this Website by ClaudeAI with the real data that I found in the real Websitw of Australia 
+- The dataset come from: https://reg.energyrating.gov.au/comparator/product_types/32/search/?expired_products=on
