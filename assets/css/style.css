@@ -1,0 +1,573 @@
+/* ==========================================================
+   Appliance Energy Consumption Website - shared stylesheet
+   All styling lives here (no inline styles in the HTML).
+
+   Colours are defined once as custom properties. They are
+   taken from the power logo (navy circle, amber symbol).
+   If your logo uses different colours, change them here only.
+   ========================================================== */
+
+:root {
+  --navy: #12263a;        /* logo background: nav bar, footer, headings */
+  --navy-soft: #1d3a56;   /* slightly lighter navy for hover states */
+  --amber: #f5b700;       /* logo symbol: accents, active/hover states */
+  --amber-deep: #7a5b00;  /* dark amber, readable as text on white */
+  --paper: #f6f8fa;       /* page background */
+  --white: #ffffff;
+  --ink: #1b2733;         /* body text */
+  --slate: #4a5b6c;       /* secondary text */
+  --line: #d5dce4;        /* borders */
+  --error: #b3261e;
+
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+
+  --page-width: 68rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;       /* keeps the footer at the bottom */
+  font-family: var(--font-body);
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+main {
+  flex: 1;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  color: var(--navy);
+  line-height: 1.15;
+  margin: 0 0 0.6em;
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h3 { font-size: 1.15rem; }
+
+p { margin: 0 0 1em; max-width: 65ch; }
+
+a { color: var(--navy); }
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 2px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.section {
+  padding: 3rem 0;
+}
+
+/* ---------- Navigation ---------- */
+
+.site-header {
+  background: var(--navy);
+  color: var(--white);
+  border-bottom: 4px solid var(--amber);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.nav-logo img {
+  width: 44px;
+  height: 44px;
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  display: block;
+  padding: 0.55rem 1rem;
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 4px;
+  border-bottom: 3px solid transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+/* Mouse-over (hover) effect */
+.nav-links a:hover {
+  background: var(--navy-soft);
+  border-bottom-color: var(--amber);
+}
+
+/* Current page indicator */
+.nav-links a[aria-current="page"] {
+  background: var(--amber);
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.nav-links a[aria-current="page"]:hover {
+  background: var(--amber);
+  border-bottom-color: var(--navy);
+}
+
+/* ---------- Home: hero ---------- */
+
+.hero {
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  padding: 4rem 0 3.5rem;
+}
+
+.hero p.lead {
+  font-size: 1.2rem;
+  color: var(--slate);
+}
+
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  background: var(--navy);
+  color: var(--white);
+  border: 2px solid var(--navy);
+  border-radius: 4px;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.button:hover {
+  background: var(--amber);
+  color: var(--navy);
+}
+
+.button-secondary {
+  background: transparent;
+  color: var(--navy);
+}
+
+.button-secondary:hover {
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* The one memorable element: the unit everything on the bills is measured in */
+.unit-band {
+  background: var(--navy);
+  color: var(--white);
+  padding: 2.5rem 0;
+}
+
+.unit-band .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 2rem;
+}
+
+.unit-band .equation {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  color: var(--amber);
+  margin: 0;
+  max-width: none;
+}
+
+.unit-band p {
+  margin: 0;
+  color: #d3dde8;
+}
+
+/* ---------- Home: content columns ---------- */
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 2rem;
+}
+
+.columns > div {
+  border-left: 4px solid var(--amber);
+  padding-left: 1rem;
+}
+
+.placeholder-note {
+  font-size: 0.9rem;
+  color: var(--slate);
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- FAQ accordion ---------- */
+
+.faq {
+  max-width: 48rem;
+  border-top: 1px solid var(--line);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0.25rem;
+  background: none;
+  border: 0;
+  font: inherit;
+  font-weight: 600;
+  color: var(--navy);
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq-question:hover {
+  color: var(--amber-deep);
+}
+
+/* The +/- icon is drawn with CSS and flips when the item is open */
+.faq-question::after {
+  content: "+";
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--amber-deep);
+  transition: transform 0.2s ease;
+}
+
+.faq-question[aria-expanded="true"]::after {
+  content: "\2212";   /* minus sign */
+}
+
+.faq-answer {
+  padding: 0 0.25rem 1rem;
+  color: var(--slate);
+}
+
+/* The hidden attribute keeps answers collapsed by default */
+.faq-answer[hidden] {
+  display: none;
+}
+
+/* ---------- Calculator ---------- */
+
+.calc-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+
+.panel {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--navy);
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+
+.field {
+  margin-bottom: 1.1rem;
+}
+
+.field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.field .hint {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--slate);
+  margin-top: 0.2rem;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  font: inherit;
+  color: var(--ink);
+  background: var(--white);
+  border: 2px solid var(--line);
+  border-radius: 4px;
+}
+
+.field input:hover,
+.field select:hover {
+  border-color: var(--slate);
+}
+
+.field input.invalid {
+  border-color: var(--error);
+}
+
+.field-error {
+  display: block;
+  min-height: 1.3em;           /* reserves space so the layout doesn't jump */
+  margin-top: 0.2rem;
+  font-size: 0.875rem;
+  color: var(--error);
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.results dl {
+  margin: 0;
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.result-row:last-child {
+  border-bottom: 0;
+}
+
+.result-row dt {
+  color: var(--slate);
+}
+
+.result-row dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--navy);
+  text-align: right;
+}
+
+.result-row.highlight dd {
+  color: var(--amber-deep);
+  font-size: 1.7rem;
+}
+
+.results-status {
+  margin: 0 0 0.75rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 4px;
+  background: var(--paper);
+  color: var(--slate);
+  font-size: 0.95rem;
+}
+
+.results-status.error {
+  background: #fbeaea;
+  color: var(--error);
+}
+
+/* ---------- About page ---------- */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 2rem;
+}
+
+.page-title {
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  padding: 2.5rem 0 2rem;
+}
+
+.page-title p {
+  color: var(--slate);
+  margin-bottom: 0;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  background: var(--navy);
+  color: #d3dde8;
+  border-top: 4px solid var(--amber);
+  padding: 1.5rem 0;
+  font-size: 0.925rem;
+}
+
+.site-footer p {
+  margin: 0.2rem 0;
+  max-width: none;
+}
+
+/* ---------- Motion preferences ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
+
+/* ---------- Data story ---------- */
+
+.glance {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 2rem;
+}
+
+.glance > div {
+  border-left: 4px solid var(--amber);
+  padding-left: 1rem;
+}
+
+.glance .figure {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.1;
+  margin-bottom: 0.35rem;
+}
+
+.story {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+  gap: 2.5rem;
+  align-items: start;
+  padding: 3rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.story h2 {
+  margin-bottom: 0.5em;
+}
+
+@media (max-width: 52rem) {
+  .story {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.chart-figure {
+  margin: 0;
+}
+
+.chart-wrap {
+  position: relative;
+  height: 24rem;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.chart-figure figcaption {
+  font-size: 0.875rem;
+  color: var(--slate);
+  margin-top: 0.6rem;
+}
+
+.data-table-toggle {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.data-table-toggle summary {
+  cursor: pointer;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.data-table-toggle table {
+  margin-top: 0.5rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9rem;
+  background: var(--white);
+}
+
+th,
+td {
+  text-align: right;
+  padding: 0.4rem 0.7rem;
+  border-bottom: 1px solid var(--line);
+}
+
+th:first-child,
+td:first-child {
+  text-align: left;
+}
+
+thead th {
+  background: var(--paper);
+  color: var(--navy);
+}
+
+.caveat {
+  font-size: 0.9rem;
+  color: var(--slate);
+  border-left: 3px solid var(--line);
+  padding-left: 0.8rem;
+}
+
+.steps-list {
+  padding-left: 1.2rem;
+  max-width: 48rem;
+}
+
+.steps-list li {
+  margin-bottom: 0.6rem;
+}

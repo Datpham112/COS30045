@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home | Appliance Energy Consumption Website</title>
+  <link rel="icon" type="image/png" href="assets/img/PowerIcon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/vendor/chart.umd.js" defer></script>
+  <script src="assets/js/data.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/charts.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main">
+      <a class="nav-logo" href="index.html">
+        <img src="assets/img/PowerIcon.png" alt="Power icon - go to Home page">
+        <span>Appliance Energy</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="televisions.html">Televisions</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>A 55-inch TV can use as much power as a 75-inch</h1>
+        <p class="lead">Screen size sets the baseline for a TV's running cost, but the star rating decides how far above or below that baseline you land. This story uses the energy labels of 2,867 TVs registered in Australia to show what to check before you buy.</p>
+        <a class="button" href="televisions.html">Estimate your own TV's running cost</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="glance">
+          <div>
+            <span class="figure">$66 to $219</span>
+            <p>Typical yearly running cost of a 43-inch TV compared with an 85-inch TV.</p>
+          </div>
+          <div>
+            <span class="figure">$185</span>
+            <p>Yearly gap between the most and least efficient 55-inch TVs on the register.</p>
+          </div>
+          <div>
+            <span class="figure">2.3 times</span>
+            <p>Energy used by a typical 1 to 2.5 star 55-inch TV compared with a 6 star or higher one.</p>
+          </div>
+        </div>
+        <p class="caveat">Costs use the energy label's standard 10 hours of use a day and a tariff of 28.55 cents per kWh. Your own use will differ, so treat the dollar figures as a way to compare TVs, not a bill forecast.</p>
+      </div>
+    </section>
+
+    <div class="container">
+
+      <section class="story" aria-labelledby="story-size">
+        <div>
+          <h2 id="story-size">Bigger screens cost more to run</h2>
+          <p>Energy use climbs steadily with screen size. The typical 43-inch TV on the register is labelled at 231 kWh a year, about $66. The typical 85-inch TV is labelled at 768 kWh, about $219, or more than three times as much.</p>
+          <p>Size and labelled energy use are closely linked across the whole dataset (a correlation of about 0.86), so size is the first thing to decide.</p>
+        </div>
+        <figure class="chart-figure">
+          <div class="chart-wrap">
+            <canvas id="chart-size" role="img" aria-label="Bar chart of the median labelled energy use per year for TVs from 43 to 85 inches, rising from 231 to 768 kilowatt hours."></canvas>
+          </div>
+          <figcaption>Median labelled energy use by screen size, with the yearly cost at 28.55 c/kWh above each bar. Sizes group TVs within one inch of the nominal size.</figcaption>
+          <details class="data-table-toggle" data-table="size">
+            <summary>View the data as a table</summary>
+          </details>
+        </figure>
+      </section>
+
+      <section class="story" aria-labelledby="story-range">
+        <div>
+          <h2 id="story-range">But TVs of the same size can be far apart</h2>
+          <p>Each bar runs from the lowest to the highest labelled energy use among TVs of that size, and the dark dash marks the median. The bars are long at every size.</p>
+          <p>Among 55-inch TVs the range is 170 to 817 kWh a year. That is a gap of about $185 a year, larger than the $120 difference between the typical 55-inch and the typical 85-inch.</p>
+        </div>
+        <figure class="chart-figure">
+          <div class="chart-wrap">
+            <canvas id="chart-range" role="img" aria-label="Range chart showing the lowest to highest labelled energy use per year for each screen size. The 55-inch range runs from 170 to 817 kilowatt hours."></canvas>
+          </div>
+          <figcaption>Lowest to highest labelled energy use by screen size. The dash is the median. The 55-inch range is labelled.</figcaption>
+          <details class="data-table-toggle" data-table="range">
+            <summary>View the data as a table</summary>
+          </details>
+        </figure>
+      </section>
+
+      <section class="story" aria-labelledby="story-stars">
+        <div>
+          <h2 id="story-stars">Star rating explains the gap, technology does not</h2>
+          <p>Star ratings are calculated relative to screen size, so within one size they work as an efficiency score. Among 55-inch TVs, those rated 6 stars or more have a median of 256 kWh a year. Those rated 1 to 2.5 stars have a median of 596 kWh, slightly more than a typical 75-inch TV at 578 kWh.</p>
+          <p>Screen technology makes little difference at this size. The median 55-inch TV is labelled at 339 kWh for LCD, 339 for LED-backlit LCD and 353 for OLED.</p>
+          <p class="caveat">Only 11 of the 470 55-inch TVs fall in the lowest star band, so treat that bar as indicative rather than exact.</p>
+        </div>
+        <figure class="chart-figure">
+          <div class="chart-wrap">
+            <canvas id="chart-stars" role="img" aria-label="Bar chart of median labelled energy use for 55-inch TVs by star rating band, falling from 596 kilowatt hours at 1 to 2.5 stars to 256 at 6 stars or more. A dashed line marks the typical 75-inch TV at 578."></canvas>
+          </div>
+          <figcaption>Median labelled energy use of 55-inch TVs by star rating band. The number of TVs in each band is shown under its label.</figcaption>
+          <details class="data-table-toggle" data-table="stars">
+            <summary>View the data as a table</summary>
+          </details>
+        </figure>
+      </section>
+
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <h2>What to check before you buy</h2>
+        <ol class="steps-list">
+          <li>Choose the smallest screen that suits your room, because size has the biggest effect on running cost.</li>
+          <li>Compare star ratings only between TVs of a similar size. A 5-star 43-inch and a 5-star 85-inch use very different amounts of energy.</li>
+          <li>Read the kWh per year on the label and multiply it by your own tariff from your electricity bill.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Frequently asked questions</h2>
+
+        <div class="faq">
+          <div class="faq-item">
+            <h3>
+              <button class="faq-question" type="button" id="faq-q1" aria-expanded="false" aria-controls="faq-a1">
+                Why does the label assume 10 hours of use a day?
+              </button>
+            </h3>
+            <div class="faq-answer" id="faq-a1" role="region" aria-labelledby="faq-q1" hidden>
+              <p>The label uses one standard test so every TV is compared on the same basis. Most households watch less than 10 hours, so real running costs are usually lower. At about 4 hours a day, expect roughly 40% of the labelled figure.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3>
+              <button class="faq-question" type="button" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">
+                Is a higher star rating always cheaper to run?
+              </button>
+            </h3>
+            <div class="faq-answer" id="faq-a2" role="region" aria-labelledby="faq-q2" hidden>
+              <p>Only when you compare TVs of similar size. A 7-star 85-inch TV can still use more energy in total than a 3-star 43-inch TV, because stars measure efficiency for the screen size, not total use.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3>
+              <button class="faq-question" type="button" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">
+                Where does the tariff of 28.55 cents come from?
+              </button>
+            </h3>
+            <div class="faq-answer" id="faq-a3" role="region" aria-labelledby="faq-q3" hidden>
+              <p>It is the average Australian tariff quoted in the Energy Rating retailer factsheet for TVs. Your own rate may be higher or lower, so check your bill.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span class="current-year">2026</span> Pham Do Dat. Appliance Energy Consumption Website.</p>
+      <p>Generative AI acknowledgement: this site was built with assistance from Claude (Anthropic). See the README for details.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

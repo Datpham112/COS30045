@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Televisions | Appliance Energy Consumption Website</title>
+  <link rel="icon" type="image/png" href="assets/img/PowerIcon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/data.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/calculator.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main">
+      <a class="nav-logo" href="index.html">
+        <img src="assets/img/PowerIcon.png" alt="Power icon - go to Home page">
+        <span>Appliance Energy</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="televisions.html" aria-current="page">Televisions</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-title">
+      <div class="container">
+        <h1>Estimate your TV's running cost</h1>
+        <p>The energy label assumes 10 hours of use a day. Enter your own viewing hours to see a cost that fits your household.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container calc-layout">
+
+        <div class="panel">
+          <h2>Running cost calculator</h2>
+          <form id="calc-form" novalidate>
+
+            <div class="field">
+              <label for="model">Screen size</label>
+              <select id="model" name="model"></select>
+              <span class="hint">Typical power draw is the median for TVs of that size on the register.</span>
+            </div>
+
+            <div class="field">
+              <label for="watts">Power usage (watts)</label>
+              <input type="number" id="watts" name="watts" inputmode="decimal" min="0" step="any" aria-describedby="watts-error">
+              <span class="field-error" id="watts-error"></span>
+            </div>
+
+            <div class="field">
+              <label for="hours">Average hours of use per day</label>
+              <input type="number" id="hours" name="hours" inputmode="decimal" min="0" max="24" step="any" value="4" aria-describedby="hours-error">
+              <span class="field-error" id="hours-error"></span>
+            </div>
+
+            <div class="field">
+              <label for="price">Electricity price (cents per kWh)</label>
+              <input type="number" id="price" name="price" inputmode="decimal" min="0" step="any" value="28.55" aria-describedby="price-hint price-error">
+              <span class="hint" id="price-hint">28.55 is the average tariff quoted by the Energy Rating website. Use your own rate from your bill.</span>
+              <span class="field-error" id="price-error"></span>
+            </div>
+
+            <div class="button-row">
+              <button class="button" type="submit">Calculate</button>
+              <button class="button button-secondary" type="reset" id="reset-btn">Reset</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="panel results" aria-labelledby="results-heading">
+          <h2 id="results-heading">Results</h2>
+          <p class="results-status" id="results-status" role="status">Enter your values to see the results.</p>
+          <dl>
+            <div class="result-row">
+              <dt>Daily energy use</dt>
+              <dd id="out-daily-kwh">&ndash;</dd>
+            </div>
+            <div class="result-row">
+              <dt>Monthly energy use</dt>
+              <dd id="out-monthly-kwh">&ndash;</dd>
+            </div>
+            <div class="result-row">
+              <dt>Yearly energy use</dt>
+              <dd id="out-yearly-kwh">&ndash;</dd>
+            </div>
+            <div class="result-row">
+              <dt>Cost per month</dt>
+              <dd id="out-monthly-cost">&ndash;</dd>
+            </div>
+            <div class="result-row highlight">
+              <dt>Cost per year</dt>
+              <dd id="out-yearly-cost">&ndash;</dd>
+            </div>
+          </dl>
+          <p class="caveat">The label figures on the Home page assume 10 hours a day, so they will be higher than the yearly figures here unless you enter 10 hours.</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span class="current-year">2026</span> Pham Do Dat. Appliance Energy Consumption Website.</p>
+      <p>Generative AI acknowledgement: this site was built with assistance from Claude (Anthropic). See the README for details.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

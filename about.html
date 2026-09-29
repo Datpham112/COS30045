@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Us | Appliance Energy Consumption Website</title>
+  <link rel="icon" type="image/png" href="assets/img/PowerIcon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main">
+      <a class="nav-logo" href="index.html">
+        <img src="assets/img/PowerIcon.png" alt="Power icon - go to Home page">
+        <span>Appliance Energy</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="televisions.html">Televisions</a></li>
+        <li><a href="about.html" aria-current="page">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-title">
+      <div class="container">
+        <h1>About Us</h1>
+        <p>Who made this site and how to read the data behind it.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container about-grid">
+        <div>
+          <h2>About this project</h2>
+          <p>This site was made for a data visualisation unit at Swinburne University of Technology. It helps Australian households compare the running costs of televisions using public energy label data.</p>
+          <p>Made by Your Name. Replace this with a sentence about you.</p>
+        </div>
+        <div>
+          <h2>Where the data comes from</h2>
+          <p>The data is the Australian Government's Energy Rating register of labelled televisions, downloaded from data.gov.au as the file tv_2026_09_28.csv (28 September 2026). Manufacturers and importers report the test results when they register a model.</p>
+        </div>
+        <div>
+          <h2>How it was prepared</h2>
+          <p>The file has 5,340 rows. Superseded entries and models marked unavailable were removed, and 2,157 rows that repeat another row's test result under a different model number were merged. That leaves 2,867 unique test results for TVs currently on sale. Screen sizes were converted from centimetres to inches.</p>
+        </div>
+        <div>
+          <h2>What to keep in mind</h2>
+          <p>Energy figures come from a standard test at 10 hours of use a day, not from real homes. Each model counts once whether it sells thousands or a handful, so the medians describe the range of models on offer, not what people actually buy.</p>
+          <p>The full notes on privacy, accuracy and ethics are in the project README.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span class="current-year">2026</span> Pham Do Dat. Appliance Energy Consumption Website.</p>
+      <p>Generative AI acknowledgement: this site was built with assistance from Claude (Anthropic). See the README for details.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
