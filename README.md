@@ -116,5 +116,5 @@ The data describes products, not people. It contains brand names, model numbers 
 - Charts have text descriptions and data tables so the information does not depend on colour or sight.
 
 ### AI Declaration
-- I created this Website by ClaudeAI with the real data that I found in the real Websitw of Australia 
+- I created this Website by ClaudeAI with the real data that I found in the real Website of Australia 
 - The dataset come from: https://reg.energyrating.gov.au/comparator/product_types/32/search/?expired_products=on
