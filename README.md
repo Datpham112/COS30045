@@ -4,6 +4,8 @@ A three-page website that tells one story from the Australian Energy Rating tele
 
 Open `index.html` in a browser. There is no build step or server.
 
+Website link: https://datpham112.github.io/COS30045/
+
 ## Pages
 
 | Page | File | Purpose |
